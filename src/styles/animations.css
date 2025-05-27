@@ -1,0 +1,54 @@
+@layer utilities {
+  .animate-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .parallax-deep {
+    transform: translateZ(-100px) scale(2);
+  }
+
+  .parallax-medium {
+    transform: translateZ(-50px) scale(1.5);
+  }
+
+  .parallax-shallow {
+    transform: translateZ(-25px) scale(1.25);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-10px, 5px) rotate(-2deg); }
+    75% { transform: translate(10px, -5px) rotate(2deg); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    from { transform: translateX(-100%) rotate(45deg); }
+    to { transform: translateX(200%) rotate(45deg); }
+  }
+
+  .shine-effect::before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    width: 50%;
+    height: 100%;
+    animation: shine 2s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-3d,
+  .parallax-deep,
+  .parallax-medium,
+  .parallax-shallow,
+  .animate-float,
+  .shine-effect::before {
+    animation: none;
+    transform: none;
+  }
+}

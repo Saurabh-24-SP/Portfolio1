@@ -1,0 +1,424 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Loading Screen Styles */
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  
+  .animate-text-glow {
+    animation: textGlow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+  }
+}
+
+/* Custom glow animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Social media specific glows */
+.glow-github {
+  box-shadow: 0 0 15px #24292e, 0 0 25px #24292e, 0 0 35px #24292e;
+}
+
+.glow-linkedin {
+  box-shadow: 0 0 15px #0077b5, 0 0 25px #0077b5, 0 0 35px #0077b5;
+}
+
+.glow-twitter {
+  box-shadow: 0 0 15px #1da1f2, 0 0 25px #1da1f2, 0 0 35px #1da1f2;
+}
+
+.glow-instagram {
+  box-shadow: 0 0 15px #e4405f, 0 0 25px #e4405f, 0 0 35px #e4405f;
+}
+
+.glow-mail {
+  box-shadow: 0 0 15px #ea4335, 0 0 25px #ea4335, 0 0 35px #ea4335;
+}
+
+/* Ensure smooth loading transitions */
+body {
+  transition: overflow 0.3s ease;
+}
+
+/* Global hover glow effects */
+@layer utilities {
+  /* Text glow on hover */
+  .hover-glow-text {
+    transition: text-shadow 0.3s ease;
+  }
+  
+  .hover-glow-text:hover {
+    text-shadow: 0 0 8px currentColor, 0 0 12px currentColor;
+  }
+  
+  /* Box glow on hover */
+  .hover-glow-box {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  
+  .hover-glow-box:hover {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4), 0 0 30px rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Border glow on hover */
+  .hover-glow-border {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .hover-glow-border:hover {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+    border-color: rgba(59, 130, 246, 0.8);
+  }
+  
+  /* Image glow on hover */
+  .hover-glow-image {
+    transition: filter 0.3s ease, transform 0.2s ease;
+  }
+  
+  .hover-glow-image:hover {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+    transform: scale(1.05);
+  }
+  
+  /* Button glow on hover */
+  .hover-glow-button {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  
+  .hover-glow-button:hover {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  /* Primary color glow */
+  .hover-glow-primary:hover {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.3);
+  }
+  
+  /* Secondary color glow */
+  .hover-glow-secondary:hover {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.6), 0 0 30px rgba(139, 92, 246, 0.3);
+  }
+  
+  /* Accent color glow */
+  .hover-glow-accent:hover {
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.6), 0 0 30px rgba(236, 72, 153, 0.3);
+  }
+  
+  /* Success color glow */
+  .hover-glow-success:hover {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.6), 0 0 30px rgba(34, 197, 94, 0.3);
+  }
+
+  /* Link underline glow effect */
+  .hover-glow-underline {
+    position: relative;
+  }
+  
+  .hover-glow-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    box-shadow: 0 0 8px currentColor;
+    transition: width 0.3s ease;
+  }
+  
+  .hover-glow-underline:hover::after {
+    width: 100%;
+  }
+}
+
+/* Remove text decoration from links */
+a, 
+button,
+.nav-link {
+  text-decoration: none !important;
+}
+
+.hover-glow-text {
+  text-decoration: none !important;
+}
+
+/* Add glow effect to all interactive elements by default */
+a, button, input, select, textarea, .interactive {
+  transition: all 0.3s ease;
+}
+
+a:hover, button:hover, .interactive:hover {
+  filter: drop-shadow(0 0 3px rgba(59, 130, 246, 0.4));
+}
+
+/* Card glow effects */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Section heading glow */
+h1:hover, h2:hover, h3:hover {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Project cards enhanced glow */
+.project-card {
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2);
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Enhanced 3D Effects */
+.parallax-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.parallax-content {
+  transform: translateZ(60px) scale(0.9);
+}
+
+/* Enhanced Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 5px currentColor); }
+  50% { filter: drop-shadow(0 0 20px currentColor); }
+}
+
+/* Enhanced Hover Effects */
+.hover-rotate-3d {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.hover-rotate-3d:hover {
+  transform: rotateX(10deg) rotateY(10deg);
+}
+
+/* Particle System */
+.particle {
+  pointer-events: none;
+  position: fixed;
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-secondary-500));
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--color-primary-500), var(--color-secondary-500));
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--color-primary-600), var(--color-secondary-600));
+}
+
+/* Loading State Animations */
+.loading-shimmer {
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Enhanced Focus States */
+:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-500-rgb), 0.3),
+              0 0 0 1px var(--color-primary-500);
+}
+
+/* Motion-safe Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark Mode Transitions */
+.dark-mode-transition {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Responsive Typography */
+@layer base {
+  html {
+    font-size: 14px;
+    @screen sm {
+      font-size: 15px;
+    }
+    @screen lg {
+      font-size: 16px;
+    }
+  }
+
+  h1 {
+    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+}
+
+/* Responsive Spacing */
+.section-padding {
+  @apply py-12 sm:py-16 md:py-20 lg:py-24;
+}
+
+.container-padding {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+/* Mobile-first Grid Layout */
+.responsive-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8;
+}
+
+/* Touch-friendly Interactive Elements */
+@media (hover: none) {
+  .hover-only {
+    @apply hidden;
+  }
+  
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px]; /* iOS minimum touch target size */
+  }
+}
+
+/* Responsive Images */
+.responsive-image {
+  @apply w-full h-auto object-cover;
+}
+
+/* Mobile Navigation Height Adjustments */
+.mobile-nav {
+  @apply h-[calc(100vh-4rem)] sm:h-auto;
+}
+
+/* Responsive Padding for Fixed Header */
+.header-offset {
+  @apply pt-16 sm:pt-20 lg:pt-24;
+}
+
+/* Improved Mobile Touch Scrolling */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  @apply overflow-auto;
+}
+
+/* Mobile-friendly Form Elements */
+.form-input {
+  @apply w-full px-4 py-3 text-base sm:text-lg appearance-none;
+}
+
+/* Responsive Layout Helpers */
+.stack-on-mobile {
+  @apply flex flex-col sm:flex-row;
+}
+
+.reverse-stack-on-mobile {
+  @apply flex flex-col-reverse sm:flex-row;
+}
+
+/* Hide Scrollbar but Keep Functionality */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Responsive Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-4 transition-all duration-700;
+    &.in-view {
+      @apply opacity-100 translate-y-0;
+    }
+  }
+}
+
+/* Mobile-First Grid System */
+.grid-system {
+  @apply grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+  @screen sm {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  
+  @screen lg {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
