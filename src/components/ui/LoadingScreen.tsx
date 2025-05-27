@@ -114,7 +114,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           }}
         >
           <motion.img
-            src="/src/public/author1.jpg"
+            src="/author1.jpg"  // Update this line
             alt="Saurabh Prajapati"
             className="w-24 h-24 rounded-full mx-auto border-4 border-primary-500 shadow-xl"
             animate={{
