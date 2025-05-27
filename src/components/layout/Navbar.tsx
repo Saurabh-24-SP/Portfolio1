@@ -592,7 +592,7 @@ const Navbar: React.FC = () => {
               }}
             >
               <motion.img 
-                src="/src/public/author1.jpg" 
+                src="/author1.jpg"  // Update this line (remove /src/public)
                 alt="SP Logo"
                 className="w-full h-full object-cover rounded-full"
                 initial={{ opacity: 0 }}
